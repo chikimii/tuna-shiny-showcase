@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shiny Pokémon Detail</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1f36, #0d1127);
+      font-family: 'VT323', monospace, monospace;
+      color: #c0c9ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    header {
+      background: #28304e;
+      width: 100%;
+      max-width: 600px;
+      padding: 1.2rem;
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 0 15px #4169e1;
+      color: #d9e3ff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 3px;
+      user-select: none;
+      margin-bottom: 0;
+    }
+    main {
+      background: #1f2550;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 0 25px #4169e1;
+      width: 100%;
+      max-width: 600px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .pokemon-detail img {
+      width: 150px;
+      height: 150px;
+      border-radius: 15px;
+      image-rendering: pixelated;
+      border: 2px solid #4b6fff;
+      box-shadow: 0 0 12px #4b6fff;
+      user-select: none;
+    }
+    .pokemon-info {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: left;
+      color: #cdd4ff;
+      line-height: 1.5;
+    }
+    .pokemon-info p {
+      margin: 0.4rem 0;
+    }
+    .back-button {
+      margin-top: 2rem;
+      background-color: #4169e1;
+      color: #d9e3ff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #4169e1;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .back-button:hover {
+      background-color: #5a84ff;
+    }
+  </style>
+</head>
+<body>
+  <header>CHELS' SNORLAX SHINY SHOWCASE</header>
+  <main>
+    <img id="pokemon-sprite" src="" alt="Shiny Pokemon" />
+    <div class="pokemon-info" id="pokemon-info"></div>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Showcase</button>
+  </main>
+
+  <script>
+    const pokemonData = {
+      weezing: {
+        name: 'Weezing',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/anim/shiny/weezing.gif',
+        details: 'Hatched in Mauville City after 35,861 encounters on 03/08/2025.'
+      },
+      golurk: {
+        name: 'Golurk',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/anim/shiny/golurk.gif',
+        details: 'Caught in Dragonspiral Tower after 7,205 encounters on 12/07/2025.'
+      },
+      psyduck: {
+        name: 'Psyduck',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/anim/shiny/psyduck.gif',
+        details: 'Hatched on 15/06/2025.'
+      },
+      duskclops: {
+        name: 'Duskclops',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/anim/shiny/dusclops.gif',
+        details: 'Hatched in Four Island on 02/08/2025.'
+      },
+      octillery: {
+        name: 'Octillery',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/anim/shiny/octillery.gif',
+        details: 'Hatched on Route 3 after 54,017 encounters.'
+      }
+    };
+
+    function loadPokemon() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pkmnKey = urlParams.get('pokemon');
+      if (!pkmnKey || !pokemonData[pkmnKey]) {
+        document.getElementById('pokemon-info').innerHTML = '<p>Pokémon not found.</p>';
+        document.getElementById('pokemon-sprite').style.display = 'none';
+        return;
+      }
+      const pkmn = pokemonData[pkmnKey];
+      document.getElementById('pokemon-sprite').src = pkmn.sprite;
+      document.getElementById('pokemon-sprite').alt = 'Shiny ' + pkmn.name;
+      document.getElementById('pokemon-info').innerHTML = `
+        <h2>${pkmn.name}</h2>
+        <p>${pkmn.details}</p>
+      `;
+    }
+
+    window.onload = loadPokemon;
+  </script>
+</body>
+</html>

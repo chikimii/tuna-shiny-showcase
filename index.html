@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chels' Snorlax Shiny Showcase</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1f36, #0d1127);
+      font-family: 'VT323', monospace, monospace;
+      color: #c0c9ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    header {
+      background: #28304e;
+      width: 100%;
+      max-width: 960px;
+      padding: 1.2rem;
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 0 15px #4169e1;
+      color: #d9e3ff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 3px;
+      user-select: none;
+    }
+    main {
+      background: #1f2550;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 0 25px #4169e1;
+      width: 100%;
+      max-width: 960px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .pokemon-item {
+      cursor: pointer;
+      border: 2px solid #4b6fff;
+      border-radius: 20px;
+      padding: 0.7rem;
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(145deg, #2b345e, #1d2544);
+      box-shadow:
+        inset 0 0 5px #5c7aff,
+        0 0 8px #4b6fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pokemon-item:hover {
+      transform: scale(1.1);
+      box-shadow:
+        inset 0 0 10px #9dbbff,
+        0 0 15px #a3baff;
+    }
+    .pokemon-item img {
+      width: 96px;
+      height: 96px;
+      image-rendering: pixelated;
+      border-radius: 15px;
+      user-select: none;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #6b79a9;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header>CHELS' SNORLAX SHINY SHOWCASE</header>
+  <main>
+    <div class="pokemon-item" onclick="window.location.href='detail.html?pokemon=weezing'">
+      <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/weezing.gif" alt="Shiny Weezing" />
+    </div>
+    <div class="pokemon-item" onclick="window.location.href='detail.html?pokemon=golurk'">
+      <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/golurk.gif" alt="Shiny Golurk" />
+    </div>
+    <div class="pokemon-item" onclick="window.location.href='detail.html?pokemon=psyduck'">
+      <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/psyduck.gif" alt="Shiny Psyduck" />
+    </div>
+    <div class="pokemon-item" onclick="window.location.href='detail.html?pokemon=duskclops'">
+      <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/dusclops.gif" alt="Shiny Duskclops" />
+    </div>
+    <div class="pokemon-item" onclick="window.location.href='detail.html?pokemon=octillery'">
+      <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/octillery.gif" alt="Shiny Octillery" />
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Chels' PokéDex
+  </footer>
+</body>
+</html>
